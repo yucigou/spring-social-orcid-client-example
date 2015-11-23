@@ -15,3 +15,8 @@ Other references:
 
 * Facebook scops:
 https://developers.facebook.com/docs/facebook-login/permissions/v2.5
+
+TODOs:
+
+1. As Facebook is blocked in some countries, we should use some other service providers in this application, for example, GitHub.
+2.  
