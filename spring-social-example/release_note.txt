@@ -1,0 +1,4 @@
+------------------------
+Release date: 2015-11-24
+Release tag: spring_social_client_r1_0_0
+Release note: Upgrade to the latest Spring framework and security
