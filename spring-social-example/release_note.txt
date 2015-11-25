@@ -1,4 +1,11 @@
 ------------------------
+Release date: 2015-11-25
+Release tag: spring_social_client_r1_1_0
+Release note: 
+	1. Added the users and authorities tables
+	2. Display the profile image once a user has signed in with Facebook 
+
+------------------------
 Release date: 2015-11-24
 Release tag: spring_social_client_r1_0_0
 Release note: Upgrade to the latest Spring framework and security
