@@ -54,7 +54,10 @@ public class HomeController {
 		
 		model.addAttribute("facebook", true);
 		model.addAttribute("numFriends", numFriends);
-		model.addAttribute("name", facebook.getDisplayName());
+		String name = facebook.getDisplayName();
+		model.addAttribute("name", name);
+		String imageUrl = facebook.getImageUrl();
+		model.addAttribute("imgUrl", imageUrl);
 		model.addAttribute("movies", movies);
 		
 		return "welcome_user";

@@ -8,6 +8,7 @@
 <h1>
 	Welcome ${name}!
 </h1>
+<img src="${imgUrl}" alt="My Profile Image">
 
 	<h2>Your Movies:</h2>
 	<c:forEach items="${movies}" var="movie">
