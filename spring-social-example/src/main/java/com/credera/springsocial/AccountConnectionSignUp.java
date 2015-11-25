@@ -18,8 +18,8 @@ public class AccountConnectionSignUp implements ConnectionSignUp {
 		
 		UserProfile profile = connection.fetchUserProfile();
 		
-		userDao.createUser(profile.getUsername());
+		userDao.createUser(profile.getName());
 		
-		return profile.getUsername();
+		return profile.getName();
 	}
 }

@@ -42,11 +42,14 @@ public class UserDao {
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {
+			System.out.println("SQLException: " + e.getMessage());
 		} finally {
 			if (conn != null) {
 				try {
 					conn.close();
-				} catch (SQLException e) {}
+				} catch (SQLException e) {
+					System.out.println("SQLException: " + e.getMessage());
+				}
 			}
 		}
 	}
