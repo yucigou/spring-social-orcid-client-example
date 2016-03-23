@@ -28,6 +28,10 @@
                     <beans:constructor-arg value="${facebook.clientId}" />
                     <beans:constructor-arg value="${facebook.clientSecret}" />
                 </beans:bean>
+				<beans:bean class="org.springframework.social.orcid.connect.OrcidConnectionFactory">
+                    <beans:constructor-arg value="${orcid.clientId}" />
+                    <beans:constructor-arg value="${orcid.clientSecret}" />
+                </beans:bean>                
  				<!-- To add another provider, add that provider's Connection factory here -->
             </beans:list>
         </beans:property>
@@ -57,6 +61,11 @@
 	<!-- To add another provider, copy this bean and change out the class definition -->
 	<beans:bean id="facebook" factory-bean="connectionRepository" factory-method="findPrimaryConnection" scope="request">
 		<beans:constructor-arg value="org.springframework.social.facebook.api.Facebook" />
+		<aop:scoped-proxy proxy-target-class="false" />
+	</beans:bean>
+
+	<beans:bean id="orcid" factory-bean="connectionRepository" factory-method="findPrimaryConnection" scope="request">
+		<beans:constructor-arg value="org.springframework.social.orcid.api.OrcidApi" />
 		<aop:scoped-proxy proxy-target-class="false" />
 	</beans:bean>
 
