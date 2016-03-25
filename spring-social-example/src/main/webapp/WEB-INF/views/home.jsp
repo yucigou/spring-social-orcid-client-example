@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>
-	Welcome!  
+	Welcome to Spring Social ORCID 
 </h1>
 
 	<form action="<c:url value="/signin/orcid" />" method="POST">

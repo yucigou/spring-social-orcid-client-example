@@ -6,12 +6,14 @@
 </head>
 <body>
 	<h1>
-		Welcome ${name}!
+		Welcome to Spring Social ORCID
 	</h1>
 
 	<h2>
-		Your ORCID ID is ${orcidId}
+		Congratulations ${name}!
 	</h2>
+	
+	<p>You have singed in with ORCID and your ORCID ID is ${orcidId}</p>
 
 </body>
 </html>
