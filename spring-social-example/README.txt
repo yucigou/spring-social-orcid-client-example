@@ -1,6 +1,27 @@
 ------------------------------------
 Prerequisite:
 
+1. Download project Spring Social ORCID from https://github.com/yucigou/spring-social-orcid
+Generate the jar file: mvn clean install
+
+2. You need to have an ORCID Sandbox App. If not yet, apply for one athttps://orcid.org/content/register-client-application-sandbox 
+Then you'll be given an ORCID ID with its secret. You should put them in the following configuration file:
+/src/main/webapp/WEB-INF/spring/social.properties
+
+------------------------------------
+Set up and run this project
+
+mvn eclipse:eclipse
+mvn jetty:run
+
+Now navigate to localhost:8080, and give it a try.
+
+##############################################
+Obsolete Readme as below
+##############################################
+------------------------------------
+Prerequisite:
+
 You need to have a Facebook App. If not yet, create one at https://developers.facebook.com/quickstarts/?platform=web 
 Then you'll be given a Facebook ID with its secret. You should put them in the following configuration file:
 /src/main/webapp/WEB-INF/spring/social.properties
