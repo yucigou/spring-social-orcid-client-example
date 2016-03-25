@@ -1,4 +1,11 @@
 ------------------------
+Release date: 2016-03-25
+Release tag: spring_social_client_r1_2_0
+Release note: 
+	1. Use spring-social-orcid to allow the user to sign with ORCID
+	2. Remove the facility for signing in with Facebook for the moment 
+
+------------------------
 Release date: 2015-11-25
 Release tag: spring_social_client_r1_1_0
 Release note: 
