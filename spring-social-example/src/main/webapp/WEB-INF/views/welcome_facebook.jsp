@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>
-	Welcome ${name}!
+	Welcome to Spring Social Facebook ${name}!
 </h1>
 <img src="${imgUrl}" alt="My Profile Image">
 

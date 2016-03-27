@@ -23,6 +23,13 @@ public class SocialSignInAdapter implements SignInAdapter {
   	
 		SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(user.getUsername(), null, user.getGrantedAuthorities()));
        
+		for (ServiceProvider serviceProvider: ServiceProvider.values()) {
+		    if (connection.getKey() != null 
+		            && serviceProvider.getId().equalsIgnoreCase(connection.getKey().getProviderId())) {
+		        return serviceProvider.getRedirectUrl();
+		    }
+		}
+		
 		return null;
     }
 }
