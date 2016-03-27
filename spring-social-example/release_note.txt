@@ -1,5 +1,11 @@
 ------------------------
-Release date: 2016-03-25
+Release date: 2016-03-27
+Release tag: spring_social_client_r1_4
+Release note: 
+	Added support for logging out from ORCID and Facebook 
+
+------------------------
+Release date: 2016-03-26
 Release tag: spring_social_client_r1_3
 Release note: 
 	Add support for signing with ORCID as well as Facebook 
