@@ -19,5 +19,17 @@
 		You have ${numFriends} friends!
 	</h2>
 
+	<form action="<c:url value="/connect/facebook" />" method="post">
+	  <div class="formInfo">
+	    <p>
+	      Spring Social Client Example is connected to your Facebook account.
+	      Click the button if you wish to disconnect.
+	    </p>
+	  </div>
+	  <button type="submit">Disconnect</button>	
+	  <input type="hidden" name="_method" value="delete" />
+	  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+	</form>
+	
 </body>
 </html>
