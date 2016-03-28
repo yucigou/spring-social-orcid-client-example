@@ -1,5 +1,11 @@
 ------------------------
 Release date: 2016-03-27
+Release tag: spring_social_client_r1_5
+Release note: 
+	Allow ORCID users to (1) Read Entire Record and (2) Add a Research Activity
+
+------------------------
+Release date: 2016-03-27
 Release tag: spring_social_client_r1_4
 Release note: 
 	Added support for logging out from ORCID and Facebook 
