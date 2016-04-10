@@ -11,7 +11,7 @@
 	</h1>
 
 	<h2>
-		Congratulations ${name}!
+		Congratulations <span id="user_name">${name}</span>!
 	</h2>
 	
 	<p>You have singed in with ORCID and your ORCID ID is ${orcidId}</p>
@@ -27,8 +27,11 @@
 	  <input type="hidden" name="_method" value="delete" />
 	  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
+	
+	<a id="linkOpener" href="javascript:void(0)">Back to your application</a>
 
 <script type="text/javascript">
+var isComplete = false;
 $(document).ready(function () { 
     $('#form').submit( function(event) {
         var formId = this.id, form = this;
@@ -48,7 +51,35 @@ $(document).ready(function () {
             form.submit();
         }, 1000);
     }); 
+    
+    $('#linkOpener').click(function(){
+    	console.log("User name: " + $('#user_name').text());
+    	// window.opener.loadClaiming($('#user_name').text());
+    	window.opener.postMessage("Done", "http://localhost:9080");
+    	// isComplete = true;
+    	window.close();
+    });  
+    
+    window.opener.postMessage("Done", "http://localhost:9080");
+    window.close();
 });
+
+function receiveMessage(event) {
+	console.log("Msg received.");
+	if (isComplete) {
+		event.source.postMessage("Done", "http://localhost:9080");
+		window.close();
+	}
+	console.log("Not complete yet");
+}
+window.addEventListener("message", receiveMessage, false);
+
+function testX() {
+	$.getJSON("http://localhost:8080/springsocial/api/orcid/profile", function(result) {
+		console.log("My profile: ");
+      	console.log(result);
+  });
+}
 </script>
 </body>
 </html>

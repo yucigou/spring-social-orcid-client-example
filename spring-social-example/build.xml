@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<project name="SpringSocialOrcidRestWS" default="war" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+	<property file="build.properties" />
+	
+	<property name="source-directory" value="src/main" />
+	<property name="java_source-directory" value="${source-directory}/java" />
+	<property name="html_source-directory" value="${source-directory}/html" />
+	<property name="resources_source-directory" value="${source-directory}/resources" />
+	<property name="js_css_source-directory" value="${source-directory}/webapp" />
+	<property name="web-inf-directory" value="${source-directory}/webapp/WEB-INF" />
+	<property name="classes-directory" value="WEB-INF/classes" />
+	
+	<property name="appserver.lib" value="${tomcat.home}/lib" />
+	<property name="tomcat-path" value="${tomcat.home}/webapps" />
+	<property name="tomcat-work" value="${tomcat.home}/work/Catalina/localhost" />
+	<property name="build-directory" value="./target" />
+	
+	<property name="server_config_dir" value="${config_backup_dir}/server" />	
+	<property name="local_config_dir" value="${config_backup_dir}/local" />
+	
+	<exec executable="hostname" outputproperty="server.hostname"/>
+
+	<tstamp prefix="build-info">
+		<format property="current-date" pattern="d-MMMM-yyyy" locale="en" />
+		<format property="current-time" pattern="hh:mm:ss a z" locale="en" />
+		<format property="year-month-day" pattern="yyyy-MM-dd" locale="en" />
+	</tstamp>
+
+	<path id="catalina-ant-classpath">
+		<!-- We need the Catalina jars for Tomcat -->
+		<!--  * for other app servers - check the docs -->
+		<fileset dir="${appserver.lib}">
+			<include name="catalina-ant.jar" />
+		</fileset>
+	</path>
+
+	<path id="maven-classpath">
+		<!-- We need the Catalina jars for Tomcat -->
+		<!--  * for other app servers - check the docs -->
+		<fileset dir="${appserver.lib}">
+			<include name="maven-ant-tasks-2.1.3.jar" />
+		</fileset>
+	</path>
+	
+	<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" classpathref="maven-classpath" />
+
+    <artifact:pom id="mypom" file="./pom.xml" />
+	<property name="final_webapp_name" value="${mypom.artifactId}" />
+	<property name="mvn_target_war_file" value="${mypom.artifactId}-${mypom.version}.war" />
+    <property name="final_war_name" value="${final_webapp_name}.war" />
+    <echo>Target war file: ${mypom.artifactId}-${mypom.version}.war</echo>
+    <echo>Final war file: ${final_webapp_name}.war</echo>
+
+	<target name="war" depends="mvn-clean">
+		<artifact:mvn pom="./pom.xml">
+			<arg value="install" />
+		</artifact:mvn>
+	</target>
+	
+	<target name="mvn-clean" depends="">
+	    <artifact:mvn pom="./pom.xml">
+	        <arg value="clean" />
+	    </artifact:mvn>
+	</target>
+
+	<target name="copy_to_local_tomcat" depends="" description="copy war file to local tomcat server">
+		<delete dir="${tomcat-path}/${final_webapp_name}" />
+		<delete dir="${tomcat-work}/${final_webapp_name}" />		
+		<delete file="${tomcat-path}/${final_war_name}" />
+		<delete file="${tomcat-path}/${mvn_target_war_file}" />
+		<copy todir="${tomcat-path}">
+			<fileset file="${build-directory}/${mvn_target_war_file}" />
+		</copy>
+		<echo message="File ${build-directory}/${mvn_target_war_file} has been copied to ${tomcat-path}" />
+		<move file="${tomcat-path}/${mvn_target_war_file}" tofile="${tomcat-path}/${final_war_name}" />
+		<echo message="In directory ${tomcat-path}, file ${mvn_target_war_file} has been renamed to ${final_war_name}" />
+	</target>
+
+	<target name="copy_markup_to_local_tomcat" depends="" description="copy markup files to local tomcat server">
+		<copy todir="${tomcat-path}/${final_webapp_name}">
+            <fileset dir="${js_css_source-directory}" includes="**/*.js,**/*.css,**/*.html,**/*.jsp"/>
+        </copy>
+		<echo message="Files under directory ${js_css_source-directory} have been copied to ${tomcat-path}/${final_webapp_name}"/>
+	</target>
+
+	<target name="Build_Install">
+		<antcall target="war" />
+		<antcall target="copy_to_local_tomcat" />
+	</target>
+	
+</project>

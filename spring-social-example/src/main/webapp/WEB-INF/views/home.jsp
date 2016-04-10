@@ -10,14 +10,14 @@
 		Welcome to Spring Social ORCID...
 	</h1>
 
-	<form action="<c:url value="/signin/orcid" />" method="POST">
+	<form id="target" action="<c:url value="/signin/orcid" />" method="POST" style="display:none">
 		<button type="submit">Sign in with ORCID</button>
-		<input type="hidden" name="scope" id="orcid_scope" value="/authenticate" />
+		<input type="hidden" name="scope" id="orcid_scope" value="/read-limited /orcid-works/create" />
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
-		<input type="checkbox" name="additional_permission" value="/read-limited /orcid-works/create"> Allow for (1) Reading Entire Record and (2) Adding a Research Activity 
+		<input type="checkbox" name="additional_permission" value="/read-limited /orcid-works/create" checked> Allow for (1) Reading Entire Record and (2) Adding a Research Activity 
 	</form>
 	
-	<form action="<c:url value="/signin/facebook" />" method="POST">
+	<form action="<c:url value="/signin/facebook" />" method="POST" style="display:none">
 		<button type="submit">Sign in with Facebook</button>
 		<input type="hidden" name="scope"
 			value="public_profile, user_friends, user_actions.video" />
@@ -34,6 +34,8 @@ $(document).ready(function() {
         	$('#orcid_scope').val("/authenticate");
         }
     });
+    
+    $( "#target" ).submit();
 });
 </script>
 </html>
