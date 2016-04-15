@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
@@ -42,7 +44,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/orcid", method = RequestMethod.GET)
-    public String welcomeOrcid(Locale locale, Model model) {
+    public String welcomeOrcid(HttpServletResponse response, Locale locale, Model model) {
         OrcidApi orcidApi = orcid.getApi();
         OrcidProfile orcidProfile = orcidApi.messageOperations().getOrcidProfile();
         orcidProfile.getOrcidBio().getPersonalDetails();
@@ -64,6 +66,8 @@ public class HomeController {
         model.addAttribute("orcidId", orcidId);
         model.addAttribute("name", displayName);
 
+        response.addCookie(new Cookie("REMEMBER_ME", "SDFDSFLK32K90JFSDFSF2P39FJDIO"));
+        
         return "welcome_orcid";
     }
 
@@ -95,11 +99,11 @@ public class HomeController {
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcome(Locale locale, Model model) {
+    public String welcome(HttpServletResponse response, Locale locale, Model model) {
         
         try {
             OrcidApi orcidApi = orcid.getApi();
-            return welcomeOrcid(locale, model);
+            return welcomeOrcid(response, locale, model);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
