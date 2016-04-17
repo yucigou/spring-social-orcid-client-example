@@ -9,15 +9,14 @@ import org.springframework.social.connect.Connection;
 import org.springframework.social.orcid.api.MessageOperations;
 import org.springframework.social.orcid.api.OrcidApi;
 import org.springframework.social.orcid.jaxb.beans.OrcidProfile;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Handles requests for API.
  */
-@Controller
+@RestController
 @RequestMapping("api")
 public class OrcidController {
 
@@ -26,7 +25,7 @@ public class OrcidController {
     Connection<OrcidApi> orcid;
 
     @RequestMapping(value = "/orcid/profile", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public @ResponseBody OrcidProfile getProfile(HttpServletRequest request) {
+    public OrcidProfile getProfile(HttpServletRequest request) {
         System.out.println("Entering getProfile()");
         
         if (orcid == null) {
