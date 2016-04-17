@@ -22,6 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.credera.springsocial" />	
+	<context:component-scan base-package="org.jygou.orcid.api" />
 	
     <beans:bean class="org.springframework.social.connect.web.ProviderSignInController">
         <beans:property name="signInUrl" value="/login" />

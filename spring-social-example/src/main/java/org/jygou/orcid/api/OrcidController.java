@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-public class OrcidController {
-    
-}
-/*
+/**
+ * Handles requests for API.
+ */
 @Controller
 @RequestMapping("api")
 public class OrcidController {
+
     @Inject
     @Qualifier("orcid")
     Connection<OrcidApi> orcid;
@@ -49,5 +49,5 @@ public class OrcidController {
         OrcidProfile orcidProfile = messageOperations.getOrcidProfile();
         return orcidProfile;
     }    
+
 }
-*/
