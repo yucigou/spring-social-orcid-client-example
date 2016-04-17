@@ -64,16 +64,6 @@ $(document).ready(function () {
     window.close();
 });
 
-function receiveMessage(event) {
-	console.log("Msg received.");
-	if (isComplete) {
-		event.source.postMessage("Done", "http://localhost:9080");
-		window.close();
-	}
-	console.log("Not complete yet");
-}
-window.addEventListener("message", receiveMessage, false);
-
 function testX() {
 	$.getJSON("http://localhost:8080/springsocial/api/orcid/profile", function(result) {
 		console.log("My profile: ");

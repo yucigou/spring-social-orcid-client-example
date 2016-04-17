@@ -8,8 +8,10 @@ import java.util.Set;
 
 import javax.sql.DataSource;
 
+import org.jygou.admin.Administrator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.social.connect.ConnectionKey;
 
 public class UserDao {
 
@@ -19,7 +21,7 @@ public class UserDao {
 		this.dataSource = dataSource;
 	}
 	
-	public void createUser(String username) {
+	public void createUser(ConnectionKey connectionKey) {
 		String userSql = "INSERT INTO users " +
 				 "(USERNAME, ENABLED) VALUES (?, ?)";
 	
@@ -27,6 +29,14 @@ public class UserDao {
 						 "(USERNAME, AUTHORITY) VALUES (?, ?)";
 		
 		java.sql.Connection conn = null;
+		
+		String username = connectionKey.getProviderId() + "_" + connectionKey.getProviderUserId();
+		String role = "ROLE_USER";
+		for (Administrator admin: Administrator.values()) {
+		    if (admin.getKey().equals(connectionKey)) {
+		        role = admin.getRole();
+		    }
+		}
 		
 		try {
 			conn = dataSource.getConnection();
@@ -38,7 +48,7 @@ public class UserDao {
 			
 			ps = conn.prepareStatement(roleSql);
 			ps.setString(1, username);
-			ps.setString(2, "ROLE_USER");
+			ps.setString(2, role);
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {

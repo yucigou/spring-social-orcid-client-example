@@ -2,7 +2,6 @@ package com.credera.springsocial;
 
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
-import org.springframework.social.connect.UserProfile;
 
 import com.credera.user.UserDao;
 
@@ -16,10 +15,10 @@ public class AccountConnectionSignUp implements ConnectionSignUp {
 	
 	public String execute(Connection<?> connection) {
 		
-		UserProfile profile = connection.fetchUserProfile();
+		// UserProfile profile = connection.fetchUserProfile();
 		
-		userDao.createUser(profile.getName());
+		userDao.createUser(connection.getKey());
 		
-		return profile.getName();
+		return connection.getKey().getProviderId() + "_" + connection.getKey().getProviderUserId();
 	}
 }
