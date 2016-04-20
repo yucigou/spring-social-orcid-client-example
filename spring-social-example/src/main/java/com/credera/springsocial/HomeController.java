@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -62,7 +61,7 @@ public class HomeController {
         model.addAttribute("orcidId", orcidId);
         model.addAttribute("name", displayName);
 
-        response.addCookie(new Cookie("REMEMBER_ME", "SDFDSFLK32K90JFSDFSF2P39FJDIO"));
+        // response.addCookie(new Cookie("REMEMBER_ME", "SDFDSFLK32K90JFSDFSF2P39FJDIO"));
         
         return "welcome_orcid";
     }

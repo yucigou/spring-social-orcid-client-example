@@ -8,10 +8,13 @@ public class User {
 
 	private String username;
 	
+	private String password;
+	
 	private Set<GrantedAuthority> grantedAuthorities;
 
-	public User (String username, Set<GrantedAuthority> grantedAuthorities) {
+	public User (String username, String password, Set<GrantedAuthority> grantedAuthorities) {
 		this.username = username;
+		this.password = password;
 		this.grantedAuthorities = grantedAuthorities;
 	}
 	
@@ -30,6 +33,14 @@ public class User {
 	public void setGrantedAuthorities(Set<GrantedAuthority> grantedAuthorities) {
 		this.grantedAuthorities = grantedAuthorities;
 	}
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 	
 	
 	

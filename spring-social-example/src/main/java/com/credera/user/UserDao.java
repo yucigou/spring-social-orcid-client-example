@@ -21,9 +21,9 @@ public class UserDao {
 		this.dataSource = dataSource;
 	}
 	
-	public void createUser(ConnectionKey connectionKey) {
+	public void createUser(ConnectionKey connectionKey, String password) {
 		String userSql = "INSERT INTO users " +
-				 "(USERNAME, ENABLED) VALUES (?, ?)";
+				 "(USERNAME, PASSWORD, ENABLED) VALUES (?, ?, ?)";
 	
 		String roleSql = "INSERT INTO authorities " +
 						 "(USERNAME, AUTHORITY) VALUES (?, ?)";
@@ -42,7 +42,8 @@ public class UserDao {
 			conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(userSql);
 			ps.setString(1, username);
-			ps.setBoolean(2, true);
+			ps.setString(2, password);
+			ps.setBoolean(3, true);
 			ps.executeUpdate();
 			ps.close();
 			
@@ -65,25 +66,36 @@ public class UserDao {
 	}
 	
 	public User findUserById(String userId) {
-		String userSql = "SELECT AUTHORITY from " +
+	    String userSql = "SELECT PASSWORD from users where username = ?";
+	    
+		String roleSql = "SELECT AUTHORITY from " +
 				 "authorities where username = ?";
 		
 		java.sql.Connection conn = null;
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
+		String password = null;
 		
 		try {
 			conn = dataSource.getConnection();
-			PreparedStatement ps = conn.prepareStatement(userSql);
+			PreparedStatement ps = conn.prepareStatement(roleSql);
 			ps.setString(1, userId);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				String authority = rs.getString("AUTHORITY");
 				grantedAuthorities.add(new SimpleGrantedAuthority(authority));
-			}
-			
+			}			
 			ps.close();
-
+			
+			ps = conn.prepareStatement(userSql);
+            ps.setString(1, userId);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                password = rs.getString("PASSWORD");
+                break;
+            }
+            ps.close();
 		} catch (SQLException e) {
+		    System.out.println("SQLException: " + e.getMessage());
 		} finally {
 			if (conn != null) {
 				try {
@@ -92,7 +104,7 @@ public class UserDao {
 			}
 		}
 		
-		User user = new User(userId, grantedAuthorities);
+		User user = new User(userId, password, grantedAuthorities);
 		return user;	
 	}
 	

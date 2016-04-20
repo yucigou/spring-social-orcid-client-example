@@ -9,16 +9,26 @@
 		http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-4.0.xsd">
  
-	<security:http auto-config="true" use-expressions="true">
-		<security:intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-		<security:form-login login-page="/login"/>
-	</security:http>
+<!-- 	<security:http auto-config="true" use-expressions="true"> -->
+<!-- 		<security:intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" /> -->
+<!-- 		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" /> -->
+<!-- 		<security:form-login login-page="/login" -->
+<!-- 			default-target-url="/"  -->
+<!-- 			username-parameter="username" -->
+<!-- 			password-parameter="password"  -->
+<!-- 			login-processing-url="/auth/login_check" /> -->
+<!-- 		<security:remember-me  -->
+<!-- 			key="myUniqueApplicationKey"  -->
+<!-- 			user-service-ref="userDetailsServiceImpl"  -->
+<!-- 			remember-me-parameter="remember-me" /> -->
+<!-- 	</security:http> -->
+	 
+<!-- 	<security:authentication-manager> -->
+<!-- 	  <security:authentication-provider> -->
+<!-- 		<security:jdbc-user-service data-source-ref="dataSource" /> -->
+<!-- 	  </security:authentication-provider> -->
+<!-- 	</security:authentication-manager> -->
  
-	<security:authentication-manager>
-	  <security:authentication-provider>
-		<security:jdbc-user-service data-source-ref="dataSource" />
-	  </security:authentication-provider>
-	</security:authentication-manager>
+	<context:component-scan base-package="com.credera.springsocial" />
  
 </beans:beans>
