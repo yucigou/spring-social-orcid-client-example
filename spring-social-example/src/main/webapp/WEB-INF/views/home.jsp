@@ -10,7 +10,7 @@
 		Welcome to Spring Social ORCID...
 	</h1>
 
-	<form id="target" action="<c:url value="/signin/orcid" />" method="POST">
+	<form id="target" action="<c:url value="/signin/orcid" />" method="POST" style="display:none">
 		<button type="submit">Sign in with ORCID</button>
 		<input type="hidden" name="scope" id="orcid_scope" value="/read-limited /orcid-works/create" />
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
@@ -25,7 +25,7 @@
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 	</form>
 
-	<form name='loginForm' action="<c:url value='/auth/login_check' />"	method='POST'>
+	<form name='loginForm' action="<c:url value='/auth/login_check' />"	method='POST' style="display:none">
 		<table>
 			<tr>
 				<td>User:</td>
@@ -61,7 +61,7 @@ $(document).ready(function() {
         }
     });
     
-    // $( "#target" ).submit();
+    $( "#target" ).submit();
 });
 </script>
 </html>
