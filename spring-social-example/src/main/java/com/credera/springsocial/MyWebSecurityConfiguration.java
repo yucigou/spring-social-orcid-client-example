@@ -30,7 +30,7 @@ public class MyWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public TokenBasedRememberMeServices myRememberMeServices() {
         TokenBasedRememberMeServices service = new TokenBasedRememberMeServices(REMEMBER_SERVICE_KEY, userDetailsServiceImpl);
-        service.setAlwaysRemember(true);
+        // service.setAlwaysRemember(true);
         service.setParameter("remember-me");
         return service;
     };

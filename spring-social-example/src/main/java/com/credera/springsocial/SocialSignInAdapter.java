@@ -1,5 +1,6 @@
 package com.credera.springsocial;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,11 +37,24 @@ public class SocialSignInAdapter implements SignInAdapter {
 		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
        
-        myRememberMeServices.onLoginSuccess(
-                (HttpServletRequest) request.getNativeRequest(),
-                (HttpServletResponse) request.getNativeResponse(),
-                authentication);
-        
+//		myRememberMeServices.loginSuccess(
+//                (HttpServletRequest) request.getNativeRequest(),
+//                (HttpServletResponse) request.getNativeResponse(),
+//                authentication);
+		Cookie[] cookies = ((HttpServletRequest) request.getNativeRequest()).getCookies();
+		if (cookies != null) {
+		    for (int i = 0; i < cookies.length; i++) {
+		        if ("do_remember_me".equalsIgnoreCase(cookies[i].getName())
+		                && "true".equalsIgnoreCase(cookies[i].getValue())) {
+		            System.out.println("Do remember me");
+		            myRememberMeServices.onLoginSuccess(
+		                    (HttpServletRequest) request.getNativeRequest(),
+		                    (HttpServletResponse) request.getNativeResponse(),
+		                    authentication);            
+		        }
+		    }
+		}
+		        
 		for (ServiceProvider serviceProvider: ServiceProvider.values()) {
 		    if (connection.getKey() != null 
 		            && serviceProvider.getId().equalsIgnoreCase(connection.getKey().getProviderId())) {

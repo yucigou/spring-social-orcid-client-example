@@ -60,6 +60,8 @@ $(document).ready(function () {
     	window.close();
     });  
     
+    document.cookie = "do_remember_me=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    
     window.opener.postMessage("Done", "http://localhost:9080");
     window.close();
 });
