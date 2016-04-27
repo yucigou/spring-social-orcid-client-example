@@ -17,14 +17,10 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-    	<property name="url" value="jdbc:hsqldb:mem:mymemdb"/>
+    	<property name="url" value="jdbc:hsqldb:http://localhost"/>
     	<property name="username" value="sa"/>
     	<property name="password" value=""/>
     </bean>
-    
-	<jdbc:initialize-database data-source="dataSource">
-	    <jdbc:script location="classpath:/social/social_schema.sql" />
-	</jdbc:initialize-database>
     
     <bean id="userDao" class="com.credera.user.UserDao">
     	<constructor-arg ref="dataSource" />
@@ -32,20 +28,5 @@
     
     <bean id="userDetailsServiceImpl" class="com.credera.user.UserDetailsServiceImpl">
     	<constructor-arg ref="userDao" />
-    </bean>
-    
-    <bean depends-on="dataSource" class="org.springframework.beans.factory.config.MethodInvokingBean">
-		<property name="targetClass" value="org.hsqldb.util.DatabaseManagerSwing" />
-		<property name="targetMethod" value="main" />
-		<property name="arguments">
-			<list>
-				<value>--url</value>
-				<value>jdbc:hsqldb:mem:mymemdb</value>
-				<value>--user</value>
-				<value>sa</value>
-				<value>--password</value>
-				<value></value>
-			</list>
-		</property>
-	</bean>
+    </bean>    
 </beans>
