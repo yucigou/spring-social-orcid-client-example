@@ -72,8 +72,11 @@ $(document).ready(function() {
     	$('#orcidRememberMeId').remove();
     	document.cookie = "do_remember_me=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
-    
-    $( "#target" ).submit();
+    if ("debug" == query) {
+    	console.log("Debugging...");
+    } else {
+        $( "#target" ).submit();
+    }
 });
 </script>
 </html>
