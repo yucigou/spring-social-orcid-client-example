@@ -45,7 +45,7 @@ public class OrcidController {
             return null;
         }
         
-        OrcidProfile orcidProfile = messageOperations.getOrcidProfile();
+        OrcidProfile orcidProfile = messageOperations.getOrcidProfile(orcid.getKey().getProviderUserId());
         return orcidProfile;
     }    
 
