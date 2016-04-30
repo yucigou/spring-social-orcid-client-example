@@ -21,6 +21,8 @@
   		</beans:property>
 	</beans:bean>    
         
+    <beans:import resource="classpath:/org/springframework/social/orcid/configuration.xml" />
+    
     <beans:bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
         <beans:property name="connectionFactories">
             <beans:list>
