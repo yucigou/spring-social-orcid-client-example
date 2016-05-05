@@ -1,13 +1,12 @@
-package com.credera.springsocial;
+package org.jyougo.springsocial;
 
+import org.jyougo.user.User;
+import org.jyougo.user.UserDao;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.web.SignInAdapter;
 import org.springframework.web.context.request.NativeWebRequest;
-
-import com.credera.user.User;
-import com.credera.user.UserDao;
 
 public class SocialSignInAdapter implements SignInAdapter {
 	

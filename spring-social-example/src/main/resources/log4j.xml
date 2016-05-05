@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.credera.springsocial">
+	<logger name="org.jyougo.springsocial">
 		<level value="info" />
 	</logger>
 	

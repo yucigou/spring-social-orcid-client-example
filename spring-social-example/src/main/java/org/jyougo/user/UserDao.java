@@ -1,4 +1,4 @@
-package com.credera.user;
+package org.jyougo.user;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

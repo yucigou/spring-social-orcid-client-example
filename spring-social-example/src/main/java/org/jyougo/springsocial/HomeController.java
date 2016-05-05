@@ -1,4 +1,4 @@
-package com.credera.springsocial;
+package org.jyougo.springsocial;
 
 import java.util.ArrayList;
 import java.util.List;

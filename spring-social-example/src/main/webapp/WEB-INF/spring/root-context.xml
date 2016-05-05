@@ -26,7 +26,7 @@
 	    <jdbc:script location="classpath:/social/social_schema.sql" />
 	</jdbc:initialize-database>
     
-    <bean id="userDao" class="com.credera.user.UserDao">
+    <bean id="userDao" class="org.jyougo.user.UserDao">
     	<constructor-arg ref="dataSource" />
     </bean>
     

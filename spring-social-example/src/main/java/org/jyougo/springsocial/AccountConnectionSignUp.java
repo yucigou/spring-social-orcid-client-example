@@ -1,10 +1,9 @@
-package com.credera.springsocial;
+package org.jyougo.springsocial;
 
+import org.jyougo.user.UserDao;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UserProfile;
-
-import com.credera.user.UserDao;
 
 public class AccountConnectionSignUp implements ConnectionSignUp {
 

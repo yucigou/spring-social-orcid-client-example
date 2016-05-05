@@ -1,4 +1,4 @@
-package com.credera.springsocial;
+package org.jyougo.springsocial;
 
 public enum ServiceProvider {
     ORCID("/orcid", "orcid"), 

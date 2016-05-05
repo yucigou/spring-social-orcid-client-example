@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.credera.springsocial" />	
+	<context:component-scan base-package="org.jyougo.springsocial" />	
 	
     <beans:bean class="org.springframework.social.connect.web.ProviderSignInController">
         <beans:property name="signInUrl" value="/login" />
