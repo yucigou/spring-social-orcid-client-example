@@ -52,11 +52,11 @@
         <beans:property name="connectionSignUp" ref="accountConnectionSignUp" />
     </beans:bean>
     
-	<beans:bean name="socialSignInAdapter" class="com.credera.springsocial.SocialSignInAdapter">
+	<beans:bean name="socialSignInAdapter" class="org.jyougo.springsocial.SocialSignInAdapter">
 		<beans:constructor-arg ref="userDao" />
 	</beans:bean>
 			
-	<beans:bean name="accountConnectionSignUp" class="com.credera.springsocial.AccountConnectionSignUp">
+	<beans:bean name="accountConnectionSignUp" class="org.jyougo.springsocial.AccountConnectionSignUp">
 		<beans:constructor-arg ref="userDao" />
 	</beans:bean>	
 	

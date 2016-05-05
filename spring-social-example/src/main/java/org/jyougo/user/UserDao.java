@@ -1,4 +1,4 @@
-package com.credera.user;
+package org.jyougo.user;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.util.Set;
 
 import javax.sql.DataSource;
 
-import org.jygou.admin.Administrator;
+import org.jyougo.admin.Administrator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.social.connect.ConnectionKey;

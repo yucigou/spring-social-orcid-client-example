@@ -1,4 +1,4 @@
-package org.jygou.orcid.api;
+package org.jyougo.orcid.api;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;

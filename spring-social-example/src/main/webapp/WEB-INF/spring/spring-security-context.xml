@@ -29,6 +29,6 @@
 <!-- 	  </security:authentication-provider> -->
 <!-- 	</security:authentication-manager> -->
  
-	<context:component-scan base-package="com.credera.springsocial" />
+	<context:component-scan base-package="org.jyougo.springsocial" />
  
 </beans:beans>

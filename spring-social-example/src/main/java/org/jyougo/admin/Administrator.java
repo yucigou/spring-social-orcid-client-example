@@ -1,4 +1,4 @@
-package org.jygou.admin;
+package org.jyougo.admin;
 
 import org.springframework.social.connect.ConnectionKey;
 

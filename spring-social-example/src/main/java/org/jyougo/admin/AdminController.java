@@ -1,4 +1,4 @@
-package org.jygou.admin;
+package org.jyougo.admin;
 
 import java.util.Locale;
 import javax.servlet.http.HttpServletResponse;
