@@ -28,7 +28,7 @@
     <beans:bean class="org.springframework.social.connect.web.ProviderSignInController">
         <beans:property name="signInUrl" value="/login" />
         <beans:property name="postSignInUrl" value="/" />
-        <beans:property name="applicationUrl" value="http://localhost:8080/springsocial" />
+        <beans:property name="applicationUrl" value="http://localhost:8080/spring-social-orcid-client" />
     </beans:bean>
     
     <beans:bean class="org.springframework.social.connect.web.ConnectController">
