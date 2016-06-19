@@ -16,7 +16,7 @@
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		<input type="hidden" name="show_login" value="true" /> 
 		<input type="checkbox" name="additional_permission" value="/read-limited /orcid-works/create" checked> Allow for (1) Reading Entire Record and (2) Adding a Research Activity
-		<input type="checkbox" name="remember-me" id="orcidRememberMeId" value="true"/> Remember Me
+		<div id="RememberMeSection"><input type="checkbox" name="remember-me" id="orcidRememberMeId" value="true"/> Remember Me</div>
 	</form>
 	
 	<form action="<c:url value="/signin/facebook" />" method="POST" style="display:none">
@@ -69,7 +69,7 @@ $(document).ready(function() {
     } else {
     	// $('#orcidRememberMeId').prop('checked', false);
     	// $('#orcidRememberMeId').removeAttr('value');
-    	$('#orcidRememberMeId').remove();
+    	$('div#RememberMeSection').remove();
     	document.cookie = "do_remember_me=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
     if ("debug" == query) {
