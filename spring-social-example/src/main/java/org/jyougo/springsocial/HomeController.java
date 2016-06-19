@@ -41,7 +41,7 @@ public class HomeController {
     @RequestMapping(value = "/orcid", method = RequestMethod.GET)
     public String welcomeOrcid(HttpServletResponse response, Locale locale, Model model) {
         OrcidApi orcidApi = orcid.getApi();
-        OrcidProfile orcidProfile = orcidApi.messageOperations().getOrcidProfile(orcid.getKey().getProviderUserId());
+        OrcidProfile orcidProfile = orcidApi.messageOperations().getOrcidProfile(orcid.getKey().getProviderUserId(), true);
         orcidProfile.getOrcidBio().getPersonalDetails();
 
         String orcidId = orcidProfile.getOrcidIdentifier().getPath();
