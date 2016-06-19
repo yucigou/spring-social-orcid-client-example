@@ -1,6 +1,6 @@
 ------------------------
 Release date: 2016-06-19
-Release tag: spring_social_client_r1_6
+Release tag: spring-social-orcid-web-app_r1_6
 Release note: 
 	Make ORCID configurable, either Production or Sandbox.
 
