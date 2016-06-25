@@ -1,3 +1,8 @@
+Recommended setup:
+* Java 8
+* Tomcat 8
+* Maven 3
+
 ------------------------------------
 1. Prerequisite:
 
