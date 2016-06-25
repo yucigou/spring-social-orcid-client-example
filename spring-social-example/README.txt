@@ -1,20 +1,72 @@
 ------------------------------------
-Prerequisite:
+1. Prerequisite:
 
-1. Download project Spring Social ORCID from https://github.com/yucigou/spring-social-orcid
-Generate the jar file: mvn clean install
+(1) Spring Social ORCID has not yet been hosted in the Central Maven Repository. 
+You need to download the Spring Social ORCID project from https://github.com/yucigou/spring-social-orcid
+And then generate the jar file and install it in your local Maven repository: mvn clean install
 
-2. You need to have an ORCID Sandbox App. If not yet, apply for one athttps://orcid.org/content/register-client-application-sandbox 
-Then you'll be given an ORCID ID with its secret. You should put them in the following configuration file:
+(2) You need to register an ORCID Application. If not yet, apply for one at:
+https://orcid.org/content/register-client-application-production-trusted-party, or
+https://orcid.org/content/register-client-application-sandbox
+
+Then you'll be given an ORCID application ID together with its secret. 
+
+Note: be sure that you have added your application's URL, for example for development, http://localhost:8080,
+to the list of redirect URLs when applying for your ORCID application ID and secret.
+
+(3) You need to put the application with its secret in the following Spring properties file:
 /src/main/webapp/WEB-INF/spring/social.properties
 
+Accordingly, you need to configure the ORCID API properties in the same file. Please find below the example
+social.properties file for ORCID Production API:
+
+orcid.clientId=xxxxxxxxxxxxxxxxxxx
+orcid.clientSecret=xxxxxxxxxxxxxxxxxxx
+
+orcid.frontendUrl=https://orcid.org/
+orcid.messageSchemaVersion=1.2
+orcid.apiUrl=https://api.orcid.org/v${orcid.messageSchemaVersion}/
+orcid.pubApiUrl=https://pub.orcid.org/v${orcid.messageSchemaVersion}/
+orcid.authorizeUrl=https://orcid.org/oauth/authorize
+orcid.accessTokenUrl=https://api.orcid.org/oauth/token
+
+Another example social.properties file for ORCID Sandbox API:
+
+orcid.clientId=xxxxxxxxxxxxxxxxxxx
+orcid.clientSecret=xxxxxxxxxxxxxxxxxxx
+
+orcid.frontendUrl=https://sandbox.orcid.org/
+orcid.messageSchemaVersion=1.2
+orcid.apiUrl=https://api.sandbox.orcid.org/v${orcid.messageSchemaVersion}/
+orcid.pubApiUrl=https://pub.sandbox.orcid.org/v${orcid.messageSchemaVersion}/
+orcid.authorizeUrl=https://sandbox.orcid.org/oauth/authorize
+orcid.accessTokenUrl=https://api.sandbox.orcid.org/oauth/token
+
 ------------------------------------
-Set up and run this project
+2. Set up your project in your IDE, such as Eclipse. (Optional)
 
 mvn eclipse:eclipse
-mvn jetty:run
 
-Now navigate to localhost:8080, and give it a try.
+------------------------------------
+3. Generate the war file, i.e., spring-social-orcid-client-1.0.0.war for example
+
+mvn clean install
+
+------------------------------------
+4. Run the web application in Tomcat
+
+You can copy the war file to diretory <TOMCAT_HOME>/webapps/, and start Tomcat:
+cd <TOMCAT_HOME>/bin
+startup.bat
+
+------------------------------------
+5. Try your web application with ORCID integrated
+
+Open your browser, and navigate to http://localhost:8080/spring-social-orcid-client-1.0.0 for instance.
+
+Then you can sign into your application with ORCID. You'll be redirected to the ORCID web site to login.
+And if successful, you'll be redirected back to your web application, with your ORCID ID and name shown
+on the web page. 
 
 ##############################################
 Obsolete Readme as below
