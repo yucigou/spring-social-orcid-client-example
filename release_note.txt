@@ -1,4 +1,10 @@
 ------------------------
+Release date: 2016-06-25
+Release tag: spring-social-orcid-web-app_r1_7
+Release note: 
+	Move source code to the root directory.
+
+------------------------
 Release date: 2016-06-19
 Release tag: spring-social-orcid-web-app_r1_6
 Release note: 
