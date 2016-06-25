@@ -14,7 +14,7 @@ Then you'll be given an ORCID application ID together with its secret.
 Note: be sure that you have added your application's URL, for example for development, http://localhost:8080,
 to the list of redirect URLs when applying for your ORCID application ID and secret.
 
-(3) You need to put the application with its secret in the following Spring properties file:
+(3) You need to put the application ID with its secret in the following Spring properties file:
 /src/main/webapp/WEB-INF/spring/social.properties
 
 Accordingly, you need to configure the ORCID API properties in the same file. Please find below the example
