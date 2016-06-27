@@ -1,4 +1,10 @@
 ------------------------
+Release date: 2016-06-27
+Release tag: spring-social-orcid-web-service_r1_10
+Release note: 
+	Move the code to the root.
+
+------------------------
 Release date: 2016-06-19
 Release tag: spring-social-orcid-web-service_r1_9
 Release note: 
