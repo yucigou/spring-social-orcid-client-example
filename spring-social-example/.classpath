@@ -143,7 +143,7 @@
       <attribute value="jar:file:/C:/Users/Yuci/.m2/repository/org/springframework/security/spring-security-crypto/3.2.3.RELEASE/spring-security-crypto-3.2.3.RELEASE-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/org/springframework/social/spring-social-orcid/1.0.0/spring-social-orcid-1.0.0.jar" sourcepath="M2_REPO/org/springframework/social/spring-social-orcid/1.0.0/spring-social-orcid-1.0.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/social/spring-social-orcid/1.1.0/spring-social-orcid-1.1.0.jar" sourcepath="M2_REPO/org/springframework/social/spring-social-orcid/1.1.0/spring-social-orcid-1.1.0-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-test/4.2.3.RELEASE/spring-test-4.2.3.RELEASE.jar" sourcepath="M2_REPO/org/springframework/spring-test/4.2.3.RELEASE/spring-test-4.2.3.RELEASE-sources.jar">
     <attributes>
       <attribute value="jar:file:/C:/Users/Yuci/.m2/repository/org/springframework/spring-test/4.2.3.RELEASE/spring-test-4.2.3.RELEASE-javadoc.jar!/" name="javadoc_location"/>
