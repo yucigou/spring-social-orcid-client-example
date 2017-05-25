@@ -1,4 +1,4 @@
-package org.jyougo.springsocial;
+package org.europepmc.springsocial;
 
 public enum ServiceProvider {
     ORCID("/orcid", "orcid"), 

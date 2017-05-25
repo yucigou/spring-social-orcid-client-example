@@ -29,7 +29,7 @@ orcid.clientId=xxxxxxxxxxxxxxxxxxx
 orcid.clientSecret=xxxxxxxxxxxxxxxxxxx
 
 orcid.frontendUrl=https://orcid.org/
-orcid.messageSchemaVersion=1.2
+orcid.messageSchemaVersion=2.0
 orcid.apiUrl=https://api.orcid.org/v${orcid.messageSchemaVersion}/
 orcid.pubApiUrl=https://pub.orcid.org/v${orcid.messageSchemaVersion}/
 orcid.authorizeUrl=https://orcid.org/oauth/authorize
@@ -41,7 +41,7 @@ orcid.clientId=xxxxxxxxxxxxxxxxxxx
 orcid.clientSecret=xxxxxxxxxxxxxxxxxxx
 
 orcid.frontendUrl=https://sandbox.orcid.org/
-orcid.messageSchemaVersion=1.2
+orcid.messageSchemaVersion=2.0
 orcid.apiUrl=https://api.sandbox.orcid.org/v${orcid.messageSchemaVersion}/
 orcid.pubApiUrl=https://pub.sandbox.orcid.org/v${orcid.messageSchemaVersion}/
 orcid.authorizeUrl=https://sandbox.orcid.org/oauth/authorize

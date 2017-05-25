@@ -1,6 +1,6 @@
-package org.jyougo.springsocial;
+package org.europepmc.springsocial;
 
-import org.jyougo.user.UserDao;
+import org.europepmc.user.UserDao;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UserProfile;

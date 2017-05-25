@@ -1,4 +1,4 @@
-package org.jyougo.user;
+package org.europepmc.user;
 
 import java.util.Set;
 

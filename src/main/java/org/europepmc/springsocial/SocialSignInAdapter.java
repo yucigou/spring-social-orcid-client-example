@@ -1,7 +1,7 @@
-package org.jyougo.springsocial;
+package org.europepmc.springsocial;
 
-import org.jyougo.user.User;
-import org.jyougo.user.UserDao;
+import org.europepmc.user.User;
+import org.europepmc.user.UserDao;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.social.connect.Connection;

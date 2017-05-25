@@ -1,4 +1,4 @@
-package org.jyougo.springsocial;
+package org.europepmc.springsocial;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,13 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
+import org.europepmc.springframework.social.orcid.api.OrcidApi;
+import org.europepmc.springframework.social.orcid.jaxb.beans.Record;
+import org.europepmc.springframework.social.orcid.utils.StringUtility;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.Page;
-import org.springframework.social.orcid.api.OrcidApi;
-import org.springframework.social.orcid.jaxb.beans.OrcidProfile;
-import org.springframework.social.orcid.utils.StringUtility;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,13 +40,12 @@ public class HomeController {
     @RequestMapping(value = "/orcid", method = RequestMethod.GET)
     public String welcomeOrcid(Locale locale, Model model) {
         OrcidApi orcidApi = orcid.getApi();
-        OrcidProfile orcidProfile = orcidApi.messageOperations().getOrcidProfile();
-        orcidProfile.getOrcidBio().getPersonalDetails();
+        Record orcidProfile = orcidApi.messageOperations().getOrcidProfile();
 
         String orcidId = orcidProfile.getOrcidIdentifier().getPath();
 
-        String givenName = orcidProfile.getOrcidBio().getPersonalDetails().getGivenNames();
-        String familyName = orcidProfile.getOrcidBio().getPersonalDetails().getFamilyName();
+        String givenName = orcidProfile.getPerson().getName().getGivenNames().getValue();
+        String familyName = orcidProfile.getPerson().getName().getFamilyName().getValue();
         String displayName = givenName;
         if (StringUtility.hasContent(familyName)) {
             if (StringUtility.hasContent(displayName)) {

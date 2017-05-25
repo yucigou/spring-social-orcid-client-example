@@ -1,4 +1,4 @@
-package org.jyougo.springsocial;
+package org.europepmc.springsocial;
 
 import java.util.ArrayList;
 import java.util.List;
