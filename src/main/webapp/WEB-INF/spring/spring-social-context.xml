@@ -26,10 +26,10 @@
     <beans:bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
         <beans:property name="connectionFactories">
             <beans:list>
-<!--                 <beans:bean class="org.springframework.social.facebook.connect.FacebookConnectionFactory"> -->
-<!--                     <beans:constructor-arg value="${facebook.clientId}" /> -->
-<!--                     <beans:constructor-arg value="${facebook.clientSecret}" /> -->
-<!--                 </beans:bean> -->
+                <beans:bean class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
+                    <beans:constructor-arg value="${facebook.clientId}" />
+                    <beans:constructor-arg value="${facebook.clientSecret}" />
+                </beans:bean>
 				<beans:bean class="org.europepmc.springframework.social.orcid.connect.OrcidConnectionFactory">
                     <beans:constructor-arg value="${orcid.clientId}" />
                     <beans:constructor-arg value="${orcid.clientSecret}" />
