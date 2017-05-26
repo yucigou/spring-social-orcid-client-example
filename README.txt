@@ -1,3 +1,14 @@
+Notice:
+
+I have devoted this project to Europe PMC (https://github.com/EuropePMC/spring-social-orcid-client-example), where we will have more resources.
+
+I'll still be one of the main contributers on this project though :-)
+
+Thank you for your kind support.
+
+Yuci
+
+##################
 Recommended setup:
 * Java 8
 * Tomcat 8
